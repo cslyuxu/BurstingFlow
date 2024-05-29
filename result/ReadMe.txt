@@ -1,0 +1,1 @@
+Query results are output in this folder
