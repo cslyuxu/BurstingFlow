@@ -3,7 +3,6 @@
  * data_read_with_label.h
  *
  *  Created on: January 8, 2019
- *      Author: Lyu
  */
 
 #ifndef DATAREAD_H_

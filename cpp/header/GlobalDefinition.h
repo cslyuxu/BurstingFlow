@@ -3,7 +3,6 @@
  * GlobalDefinition.h
  *
  *  Created on: January 8, 2019
- *      Author: Lyu
  */
 
 #ifndef GLOBALDEFINITION_H

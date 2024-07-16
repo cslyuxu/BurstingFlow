@@ -1,4 +1,4 @@
-1. Datasets can be downloaded at: https://cloud.comp.hkbu.edu.hk/public.php?service=files&t=d8e880f1e20d1709f1379fcf131c09e1
+1. Datasets can be downloaded at: https://drive.google.com/drive/folders/1SHgaN2sEZjJm1SQ9FpVkRZ0vV73aR1Lm?usp=sharing
    
 2. The datasets should be placed at "network/"
    

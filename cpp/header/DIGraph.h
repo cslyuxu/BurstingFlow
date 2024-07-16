@@ -3,7 +3,6 @@
  * DIGraph.h for transformed network
  *
  *  Created on: October 8, 2023
- *      Author: Lyu
  */
 
 #ifndef DIGRAPH_H_

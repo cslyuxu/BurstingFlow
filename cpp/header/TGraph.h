@@ -3,7 +3,6 @@
  * TGraph.h for temporal network
  *
  *  Created on: October 8, 2023
- *      Author: Lyu
  */
 
 #ifndef TGRAPH_H_
