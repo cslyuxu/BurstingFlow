@@ -117,8 +117,8 @@ public:
 	void initMap();
 	void IndexTimestamp(TimestampType, TimestampType);
 	int maxdegree();
-	int avgdegree();
-	int stddegree();
+	double avgdegree();
+	double stddegree();
 	VertexID getRV();
 	MapMatrix& getMap();
 
@@ -366,17 +366,36 @@ void TGRAPH<WeightType, TimestampType>::IndexTimestamp(TimestampType max, Timest
 
 template<class WeightType, class TimestampType>
 int TGRAPH<WeightType, TimestampType>::maxdegree() {
-	return 0;
+	int max = 0, temp;
+	VertexID u, v;
+	for(auto it = getVLabel().begin();it != getVLabel().end();it++){
+		temp = 0;
+		u = it->first;
+		for(auto it1 = getOutEdge()[u].begin();it1 != getOutEdge()[u].end();it1++){
+			v = it1->first;
+			for(auto it2 = getOutEdge()[u][v].begin();it2 != getOutEdge()[u][v].end();it2++)
+				temp++;
+		}
+
+		for(auto it1 = getInVertex()[u].begin();it1 != getInVertex()[u].end();it1++){
+			v = it1->first;
+			for(auto it2 = getInVertex()[u][v].begin();it2 != getInVertex()[u][v].end();it2++)
+				temp++;
+		}
+		if(temp > max)
+			max = temp;
+	}
+	return max;
 }
 
 template<class WeightType, class TimestampType>
-int TGRAPH<WeightType, TimestampType>::avgdegree() {
+double TGRAPH<WeightType, TimestampType>::avgdegree() {
 	double avg = getEcnt()*2/getVcnt();
 	return avg;
 }
 
 template<class WeightType, class TimestampType>
-int TGRAPH<WeightType, TimestampType>::stddegree() {
+double TGRAPH<WeightType, TimestampType>::stddegree() {
 	double std, avg, temp, total;
 	avg = avgdegree();
 	std = 0;

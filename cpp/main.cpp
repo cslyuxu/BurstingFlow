@@ -33,9 +33,13 @@ int main(int argc, char *argv[]) {
 	cout << "*************************************" << endl;
   DataRead<double, Timestamp> Graph;
 
+  int k = stoi(argv[3]);    // type of experiments
+  
+
   string QueryName = argv[1];
   cout << "Query: "<<QueryName<<endl;
-  Graph.ReadQuery(QueryName+ ".qry");
+  if(k!=0)
+    Graph.ReadQuery(QueryName+ ".qry");
 
   
 	//Loading network data
@@ -45,8 +49,7 @@ int main(int argc, char *argv[]) {
 	cout << endl;
    
   //Timestamp d = stoi(argv[3]);    // delta of the bursting flow
-  int k = stoi(argv[3]);    // type of experiments
-  
+
   endTime = clock();
   
   cout<<"The query and flow network have been loaded in "<< (double)(endTime - startTime) / CLOCKS_PER_SEC <<" seconds..."<<endl;
@@ -73,8 +76,8 @@ int main(int argc, char *argv[]) {
   BFlow<double, Timestamp> test(Graph.graph_ptr, Graph.query_set, Graph.querynum, temp);
 
   
-  
-  //test.QueryGenerator(16, 3); //   (number of query, reachable with path at least length)
+  if(k == 0)
+    test.QueryGenerator(20, 3); //   (number of query, reachable with path at least length); 
   if(k == 1)
     test.Overall(k);    // k is used here
   if(k == 2)
